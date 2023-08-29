@@ -8,7 +8,6 @@ exports.up = function(knex) {
     t.text("description");
     t.string("image_url");
     t.timestamps(true,true)
-
   })
 };
 

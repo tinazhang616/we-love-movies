@@ -14,10 +14,11 @@ const addCategory = mapProperties({
 function list(){
     return knex("movies").select("*")
 }
+
 function movieIsShowing(){
     return knex("movies as m")
     .join("movies_theaters as mt","m.movie_id","mt.movie_id")
-    .select("m.movie_id as id","m.title","m.runtime_in_minutes","m.rating","m.description","m.image_url")
+    .select("m.movie_id","m.title","m.runtime_in_minutes","m.rating","m.description","m.image_url")
     .distinct("m.title")
     .where({"mt.is_showing":true})
 }
